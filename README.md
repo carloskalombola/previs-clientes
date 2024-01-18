@@ -6,7 +6,7 @@ Este projeto é parte do curso em Inteligência artificial do Institute of Techn
 ### Base de dados
 O conjunto de dados contém dados sobre a compra de um item que foi oferecido aos clientes. A variável Compra (Achat) indica para cada cliente se ele comprou ou não o item.
 
-Recursos do conjunto de dados:
+ Características do conjunto de dados:
 
 * Instâncias: 600 clientes
 * Número de variáveis: 12
