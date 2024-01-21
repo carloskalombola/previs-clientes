@@ -67,6 +67,28 @@ nbr_fail
 taxa_fail <- nbr_fail/nrow(compra_test)
 taxa_fail
 
-#----------------------------#
-# PREVISÕES DA ÁRVORE RPART #
-#---------------------------#
+#---------------------#
+# PREVISÕES DO MODELO #
+#--------------------#
+
+# Carregando uma amostra de dados com novos clientes
+achat_pro <- read.csv("data_achat_prospects.csv", header = TRUE, sep = ",", dec = ".", stringsAsFactors=T)
+
+# Aplicando a árvore de decisão a leads em 'achat_pro': classe prevista
+pred_tree1 <- predict(tree1, achat_pro, type="class")
+
+# Visualização de resultados (previsões)
+pred_tree1
+
+# Exibindo o número de previsões para cada classe
+table(pred_tree1)
+
+# Add uma coluna Previsão ao DataFrame achat_pro que contém a classe prevista 
+achat_pro$Prediction <- pred_tree1
+
+# Criação de um DataFrame contendo as previsões "Oui" e "Non"
+achat_pro_oui <- achat_pro[achat_pro$Prediction=="Oui",]
+View(achat_pro_oui)
+#
+achat_pro_non <- achat_pro[achat_pro$Prediction=="Non",]
+View(achat_pro_non)
